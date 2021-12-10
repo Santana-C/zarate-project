@@ -29,7 +29,7 @@ var server = http.createServer(app);
 
 server.listen(port, function(){
   console.log('La aplicación ha arrancado');
-  sequelize.sync({force: true})
+  sequelize.sync({force: false})
     .then(()=>{
       console.log('Se ha conectado a la base de datos correctamente');
     })
