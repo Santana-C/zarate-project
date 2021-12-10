@@ -1,0 +1,51 @@
+<%- include ../layouts/cabecera.ejs %> 
+    <br><br>
+    <form method="get" action="/libros/buscar/">
+        <div class="row">
+            <div class="form-group  col-sm-10 col-md-6 col-lg-6">
+                <input id="campo_busqueda" class="form-control" type="text" placeholder="Buscar libro" aria-label="Search" name="titulo">
+            </div>
+            <div class="form-group col-sm-2 col-md-4 col-lg-4">
+                <button class="btn btn-outline-success" type="submit">Buscar</button>
+            </div>
+            <div class="form-group col-sm-12 col-md-2 col-lg-2">
+                <a href="/libros/crear" class="btn btn-primary" type="button">Nuevo Libro</a>
+            </div>
+        </div>
+    </form>
+    <br>
+    <table class="table table-light">
+        <thead class="thead-light">
+            <tr>
+                <th>#</th>
+                <th>Titulo</th>
+                <th>Portada</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% for( let i = 0; i < libros.length; i++ ) { %>
+                <tr>
+                    <td><%=libros[i].id%></td>
+                    <td><%=libros[i].titulo%></td>
+                    <td>
+                        <img class="img-thumbnail" width="100" src="/images/<%=libros[i].portada %>" alt="">
+                    </td>
+                    <td>
+                        <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+                            <form class="form-inline" method="get" action="/libros/editar/<%=libros[i].id %>">
+                                <button class="btn btn-info" type="submit">Editar</button>
+                            </form>
+                        </div> 
+                         | 
+                         <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+                            <form class="form-inline" method="post" action="/libros/eliminar/<%=libros[i].id %>">
+                                <button class="btn btn-danger" type="submit">Eliminar</button>
+                            </form>
+                        </div>
+                    </td>
+                </tr>
+            <% } %>
+        </tbody>
+    </table>
+<%- include ../layouts/pie.ejs %>

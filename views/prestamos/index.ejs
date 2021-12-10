@@ -1,0 +1,25 @@
+<%- include ../layouts/cabecera.ejs %> 
+    <br><br>
+    <a href="/prestamos/crear" class="btn btn-primary" type="button">Ingresar un nuevo Prestamo</a>
+    <br><br>
+    <table class="table table-light">
+        <thead class="thead-light">
+            <tr>
+                <th>#</th>
+                <th>Titulo</th>
+                <th>Portada</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% for( let i = 0; i < prestamos.length; i++ ) { %>
+                <tr>
+                    <td><%=prestamos[i].id%></td>
+                    <td><%=prestamos[i].titulo%></td>
+                    <td><%=prestamos[i].portada %></td>
+                    <td> Editar | Borrar</td>
+                </tr>
+            <% } %>
+        </tbody>
+    </table>
+<%- include ../layouts/pie.ejs %> 

@@ -1,0 +1,8 @@
+<root>
+  <libro>
+    <id>2</id>
+    <titulo>Curso de Programación Orientada a Objetos en C# .NET</titulo>
+    <autor_id>2</autor_id>
+    <autor>Carlos Santana</autor>
+  </libro>
+</root>

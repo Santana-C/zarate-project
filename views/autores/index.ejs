@@ -1,0 +1,37 @@
+<%- include ../layouts/cabecera.ejs %> 
+        <br><br>
+        <a href="/autores/crear" class="btn btn-primary" type="button">Ingresar un nuevo Autor</a>
+        <br><br>
+        <table class="table table-light">
+            <thead class="thead-light">
+                <tr>
+                    <th>#</th>
+                    <th>Nombres</th>
+                    <th>Apellidos</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for( let i = 0; i < autores.length; i++ ) { %>
+                    <tr>
+                        <td><%=autores[i].id%></td>
+                        <td><%=autores[i].nombres%></td>
+                        <td><%=autores[i].apellidos %></td>
+                        <td> 
+                            <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+                                <form class="form-inline" method="get" action="/autores/editar/<%=autores[i].id %>">
+                                    <button class="btn btn-info" type="submit">Editar</button>
+                                </form>
+                            </div> 
+                             | 
+                             <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+                                <form class="form-inline" method="post" action="/autores/eliminar/<%=autores[i].id %>">
+                                    <button class="btn btn-danger" type="submit">Eliminar</button>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                <% } %>
+            </tbody>
+        </table>
+<%- include ../layouts/pie.ejs %> 
